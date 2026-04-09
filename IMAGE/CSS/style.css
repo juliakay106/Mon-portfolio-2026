@@ -226,3 +226,184 @@ footer a:hover {
     color: var(--orange-vif);
     transform: translateY(-3px);
 }
+
+{
+
+```css
+/* RESET */
+ *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+ 
+/* BODY */
+body {
+    background-color: f5f6fa;
+}
+/* SECTION */
+.projects {
+  padding: 60px 10%;
+  text-align: center;
+}
+
+.projects h2 {
+  font-size: 2.5rem;
+  color: #5a4fcf;
+  margin-bottom: 10px;
+}
+
+/* LIGNE */
+.line {
+    width: 60px;
+    height: 4px;
+    background: #5a4fcf;
+    margin: 10px auto 40px;
+    border-radius: 10px;
+}
+
+/* GRID */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+/* CARD */
+.card {
+  background: #ffffff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+/* HOVER */
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* IMAGE */
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 3px solid #5a4fcf;
+}
+
+/* TITRE */
+.card h3{
+  padding: 10px;
+  color: #333;
+}
+
+/* TEXTE */
+.card p {
+  padding: 0 10px;
+  font-size: 14 px;
+  color: #666;
+}
+
+
+/* TAGS */
+.tags {
+  padding: 10px;
+}
+
+.tags span {
+  background: #eee;
+  padding: 5px 10px;
+  margin-right: 5px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+/* LIENS */
+.links {
+    display: flex;
+  justify-content: space-between;
+    padding: 10px;
+  }
+
+  .links a {
+    text-decoration: none;
+    color: #5a4fcf;
+    font-weight: bold;
+  }
+
+  /* BIENTÖT */
+  .links a:last-child {
+    color: gray;
+    font-style: italic;
+  }
+
+.passions {
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 32px;
+  color: #5a54e8;
+  margin-bottom: 40px;
+}
+
+.passions-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.passion-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.passion-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.passion-card .icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.passion-card h3 {
+  color: #5a54e8;
+  margin-bottom: 10px;
+}
+
+.passion-card p {
+  font-size: 14px;
+  color: #555;
+}
+
+.div-card:hover {
+  background: linear-gradient(135deg, #5a54e8, #8f94fb);
+  color: white;
+}
+
+.div-card:hover h3,
+.div-card:hover p {
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
