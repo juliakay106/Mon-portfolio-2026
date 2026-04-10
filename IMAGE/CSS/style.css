@@ -225,185 +225,487 @@ footer a {
 footer a:hover {
     color: var(--orange-vif);
     transform: translateY(-3px);
+ }
+
+ /* --- VARIABLES DE COULEURS --- */
+:root {
+    --primary-blue: #4f46e5;    /* Le bleu des titres et tags */
+    --text-main: #1e293b;      /* Gris foncé pour le texte */
+    --text-muted: #64748b;     /* Gris clair pour les descriptions */
+    --bg-light: #f8fafc;       /* Fond de la page */
+    --card-white: #ffffff;     /* Fond des cartes */
+    --tag-bg: #eff6ff;         /* Fond des petits badges */
 }
 
-{
-
-```css
-/* RESET */
- *{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
- 
-/* BODY */
-body {
-    background-color: f5f6fa;
-}
-/* SECTION */
-.projects {
-  padding: 60px 10%;
-  text-align: center;
+/* --- CONTENEUR DE LA GRILLE --- */
+.grid-container {
+    display: grid;
+    /* Crée 3 colonnes sur grand écran, s'adapte sur mobile */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centre la grille dans la page */
 }
 
-.projects h2 {
-  font-size: 2.5rem;
-  color: #5a4fcf;
-  margin-bottom: 10px;
-}
-
-/* LIGNE */
-.line {
-    width: 60px;
-    height: 4px;
-    background: #5a4fcf;
-    margin: 10px auto 40px;
-    border-radius: 10px;
-}
-
-/* GRID */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-}
-
-/* CARD */
+/* --- STYLE GÉNÉRAL D'UNE CARTE --- */
 .card {
-  background: #ffffff;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  text-align: left;
+    background: var(--card-white);
+    border-radius: 16px;       /* Bords arrondis comme sur l'image */
+    overflow: hidden;          /* Pour que l'image suive l'arrondi */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
-/* HOVER */
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    transform: translateY(-5px); /* Petit effet de soulèvement au survol */
 }
 
-/* IMAGE */
+/* --- IMAGE DU PROJET --- */
 .card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-bottom: 3px solid #5a4fcf;
+    width: 100%;
+    height: 190px;
+    object-fit: cover;         /* Empêche l'image d'être écrasée */
+    border-bottom: 1px solid #f1f5f9;
 }
 
-/* TITRE */
-.card h3{
-  padding: 10px;
-  color: #333;
+/* --- CONTENU TEXTUEL --- */
+.card-content {
+    padding: 20px;
+    flex-grow: 1;              /* Aligne les liens en bas même si le texte est court */
 }
 
-/* TEXTE */
-.card p {
-  padding: 0 10px;
-  font-size: 14 px;
-  color: #666;
+.card-content h3 {
+    margin: 0 0 12px 0;
+    color: var(--primary-blue);
+    font-size: 1.2rem;
+    font-weight: 700;
 }
 
+.card-content p {
+    margin: 0 0 15px 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
 
-/* TAGS */
+/* --- TAGS (Badges technos) --- */
 .tags {
-  padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
 }
 
-.tags span {
-  background: #eee;
-  padding: 5px 10px;
-  margin-right: 5px;
-  border-radius: 8px;
-  font-size: 12px;
+.tag {
+    background: var(--tag-bg);
+    color: var(--primary-blue);
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid #dbeafe;
 }
 
-/* LIENS */
+/* --- BARRE DE LIENS EN BAS --- */
 .links {
     display: flex;
-  justify-content: space-between;
-    padding: 10px;
-  }
+    justify-content: space-between; /* Un lien à gauche, un à droite */
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1.5px solid #f1f5f9; /* Ligne de séparation subtile */
+}
 
-  .links a {
+.links a {
     text-decoration: none;
-    color: #5a4fcf;
-    font-weight: bold;
-  }
+    color: var(--text-main);
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
 
-  /* BIENTÖT */
-  .links a:last-child {
-    color: gray;
-    font-style: italic;
-  }
+.links a i {
+    font-size: 1rem;
+    color: #000; /* Icônes noires comme sur le modèle */
+}
 
+.links a:hover {
+    color: var(--primary-blue);
+}
+
+/* --- PETITE VARIANTE POUR LE "BIENTÔT" (Grisé) --- */
+.links a i.fa-clock {
+    color: var(--text-muted);
+}
+
+/* === STYLE SECTION MES PASSIONS === */
 .passions {
-  padding: 80px 10%;
-  text-align: center;
+    padding: 80px 10%;
+    background-color: #f8fafc; /* Fond très légèrement grisé pour se détacher du blanc */
+    text-align: center;
 }
 
-.section-title {
-  font-size: 32px;
-  color: #5a54e8;
-  margin-bottom: 40px;
+/* Style de titre cohérent avec ton image accueil */
+.passions h2 {
+    color: var(--primary-blue, #4f46e5); /* Utilise ta variable bleu ou une valeur par défaut */
+    margin: 0 0 10px 0;
+    font-size: 2rem;
+    font-weight: 700;
 }
 
-.passions-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
+/* La petite ligne sous le titre */
+.passions .underline {
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-blue, #4f46e5);
+    margin: 0 auto 50px auto;
+    border-radius: 2px;
 }
 
+/* La grille de passions */
+.passions-grid {
+    display: grid;
+    /* Crée 3 colonnes sur grand écran, s'adapte sur mobile */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+/* --- LA CARTE PASSION (C'est ici que la magie opère) --- */
 .passion-card {
-  background: #fff;
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-  transition: 0.3s ease;
-  cursor: pointer;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden; /* Pour que l'image suive l'arrondi */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    height: 380px; /* Hauteur fixe pour un bel effet de carte */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
 }
 
+/* Effet de zoom et de soulèvement au survol */
 .passion-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
 }
 
-.passion-card .icon {
-  font-size: 40px;
-  margin-bottom: 15px;
+/* L'image de fond */
+.passion-card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* L'image remplit la carte sans être déformée */
+    transition: transform 0.6s ease;
 }
 
-.passion-card h3 {
-  color: #5a54e8;
-  margin-bottom: 10px;
+/* Effet de zoom sur l'image au survol de la carte */
+.passion-card:hover img {
+    transform: scale(1.1);
 }
 
-.passion-card p {
-  font-size: 14px;
-  color: #555;
+/* Le contenu sur l'image (l'overlay) */
+.passion-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+    text-align: left;
+    
+    /* Un dégradé sombre en bas pour que le texte reste lisible */
+    background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0) 100%);
+    
+    color: white; /* Tout le texte sur la carte est blanc */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
 }
 
-.div-card:hover {
-  background: linear-gradient(135deg, #5a54e8, #8f94fb);
-  color: white;
+/* Les icônes (FontAwesome) */
+.passion-icon {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: var(--primary-blue, #4f46e5); /* Toujours ton bleu indigo, pour l'accent */
+    background-color: rgba(255, 255, 255, 0.9); /* Fond blanc pour faire ressortir l'icône */
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
 }
 
-.div-card:hover h3,
-.div-card:hover p {
-  color: white;
+.passion-content h3 {
+    margin: 0 0 12px 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.passion-content p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9); /* Texte blanc un peu adouci */
 }
 
 
+/* === STYLE SECTION DIVERTISSEMENT (VERTICAL & AÉRÉ) === */
+.divertissement {
+    padding: 80px 10%;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.divertissement-grid {
+    display: grid;
+    /* On définit des colonnes plus larges pour laisser de la place au texte */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.fun-card {
+    display: flex;
+    flex-direction: column; /* L'image passe au-dessus du texte */
+    align-items: center;
+    padding: 25px;
+    background: #f8fafc;
+    border-radius: 20px;
+    border: 1px solid #eef2f6;
+    transition: all 0.3s ease;
+    /* On ne met pas de hauteur fixe pour laisser le texte s'exprimer */
+}
+
+.fun-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(79, 70, 229, 0.1);
+    border-color: var(--primary-blue);
+    background: #fff;
+}
+
+/* On garde le cercle, mais on le centre en haut */
+.fun-image {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 20px; /* Espace entre l'image et le titre */
+    border: 3px solid white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.fun-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Le texte est maintenant bien centré et a de la place */
+.fun-info {
+    text-align: center;
+    width: 100%;
+}
+
+.fun-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+    color: #1e293b;
+}
+
+.fun-info p {
+    margin: 0 0 15px 0;
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.5; /* Meilleure lisibilité */
+}
+
+.fun-info span {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #94a3b8;
+    display: inline-block;
+    padding: 5px 12px;
+    background: white;
+    border-radius: 50px;
+}
+
+.fun-info span span {
+    color: var(--primary-blue);
+}
 
 
+/* Fond de page léger pour faire ressortir les blocs blancs */
+.contact-page-bg {
+    background: linear-gradient(180deg, #f8fafc 0%, #eff6ff 100%);
+    min-height: 80vh;
+    padding-bottom: 50px;
+}
 
+/* Grille principale */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
 
+/* Style commun aux deux blocs */
+.contact-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 40px;
+    border: 1px solid rgba(79, 70, 229, 0.1);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease;
+}
 
+.contact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -10px rgba(79, 70, 229, 0.15);
+    border-color: var(--primary-blue);
+}
 
+/* Entêtes des blocs */
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
 
+.card-header i {
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+}
 
+.card-header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: #1e293b;
+}
 
+/* --- FORMULAIRE STYLE --- */
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #475569;
+}
 
+.form-group input, .form-group textarea {
+    background: #f1f5f9;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    background: #fff;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+.btn-primary {
+    background: var(--primary-blue);
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+/* --- INFO STYLE --- */
+.info-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+    padding: 15px;
+    background: #f8fafc;
+    border-radius: 15px;
+}
+
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-blue);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-data span {
+    font-size: 0.8rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.text-data p {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #1e293b;
+}
+
+/* Boutons Apps Social */
+.apps-title {
+    margin: 30px 0 15px 0;
+    font-weight: 600;
+    color: #475569;
+}
+
+.apps-grid {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-app {
+    flex: 1;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 12px;
+    color: white;
+    text-align: center;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.whatsapp { background: #25D366; }
+.telegram { background: #0088cc; }
+/* --- Centrage du titre et de l'intro --- */
+.contact-header {
+    text-align: center; /* Centre le texte */
+    margin-bottom: 40px;
+}
+
+.contact-section .underline {
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-blue, #4f46e5);
+    margin: 0 auto 20px auto; /* Le "0 auto" est crucial pour centrer un bloc comme le trait */
+    border-radius: 2px;
+}
+
+.contact-intro {
+    max-width: 600px; /* On limite la largeur pour que ça ne s'étale pas trop */
+    margin: 0 auto;   /* Centre le paragraphe d'intro */
+    color: #64748b;
+}
+
+.contact-section .container h1{
+    text-align: center;
+} 

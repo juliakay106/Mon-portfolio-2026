@@ -25,41 +25,78 @@
         </nav>
     </header>
    <main>
-<main class="contact-page">
-  <div class="contact-container">
-    
-    <h1>Contactez-moi</h1>
-    <p class="contact-intro">
-      Basée à Lubumbashi, je suis disponible pour répondre à toutes vos demandes.
-      N'hésitez pas à me contacter via le formulaire ou directement par téléphone.
-    </p>
+<main 
 
-    <div class="contact-info">
-      <p><strong>Téléphone :</strong> +243 991 290 893</p>
-      <p>
-        Disponible sur :
-        <span class="badge whatsapp">WhatsApp</span>
-        <span class="badge telegram">Telegram</span>
-      </p>
-    </div>
+ <main class="contact-page-bg">
+    <section class="contact-section">
+        <div class="container">
+            <h1 class="fade-in">Entrons en contact</h1>
+            <div class="underline"></div>
+            <p class="contact-intro">Basé à <strong>Lubumbashi</strong>, je suis disponible pour vos projets et collaborations.</p>
 
-    <form class="contact-form">
-      <div class="form-group">
-        <label for="name">Nom</label>
-        <input type="text" id="name" name="name" placeholder="Votre nom" required>
-      </div>
+            <div class="contact-grid">
+                <div class="contact-card form-wrapper">
+                    <div class="card-header">
+                        <i class="fas fa-paper-plane"></i>
+                        <h3>Envoyez un message</h3>
+                    </div>
+                    <form action="#">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Nom complet</label>
+                            <input type="text" placeholder="Ex: julia kayembe" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-phone"></i> Téléphone</label>
+                            <input type="tel" placeholder="+243..." required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-comment-dots"></i> Votre Message</label>
+                            <textarea rows="4" placeholder="Comment puis-je vous aider ?"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Envoyer l'invitation</button>
+                    </form>
+                </div>
 
-      <div class="form-group">
-        <label for="phone">Téléphone</label>
-        <input type="tel" id="phone" name="phone" placeholder="Votre numéro" required>
-      </div>
+                <div class="contact-card info-wrapper">
+                    <div class="card-header">
+                        <i class="fas fa-address-book"></i>
+                        <h3>Coordonnées directes</h3>
+                    </div>
+                    
+                    <div class="info-list">
+                        <div class="info-box">
+                            <div class="icon-circle"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="text-data">
+                                <span>Ville</span>
+                                <p>Lubumbashi, RDC</p>
+                            </div>
+                        </div>
 
-      <button type="submit">Envoyer</button>
-    </form>
+                        <div class="info-box">
+                            <div class="icon-circle"><i class="fas fa-phone-alt"></i></div>
+                            <div class="text-data">
+                                <span>Numéro direct</span>
+                                <p>+243 991 290 893</p>
+                            </div>
+                        </div>
+                    </div>
 
-  </div>
+                    <div class="apps-container">
+                        <p class="apps-title">Réponse rapide sur :</p>
+                        <div class="apps-grid">
+                            <a href="https://wa.me/243991290893" class="btn-app whatsapp">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                            <a href="https://t.me/ton_username" class="btn-app telegram">
+                                <i class="fab fa-telegram-plane"></i> Telegram
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>
-  </section>
 </main>
 
    </main>
